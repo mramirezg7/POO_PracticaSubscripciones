@@ -1,19 +1,62 @@
 public class Cliente {
 
     //Atributos
-    String nombre;
-    String apellidos;
-    String cedula;
-    char sexo;
-    String ubicacion;
+    private String nombre;
+    private String apellidos;
+    private String cedula;
+    private char sexo;
+    private String ubicacion;
 
     //Métodos
 
-    Cliente (String nombreObjeto,
-             String apellidosObjeto,
-             String cedulaObjeto,
-             char sexoObjeto,
-             String ubicacionObjeto){
+    //toString()
+    public String toString(){
+        return "Nombre: " + nombre + "\nApellidos: " + apellidos + "\nCedula: " + cedula + "\nSexo: " + sexo +
+                "\nUbicación: " + ubicacion + "\n";
+    }
+
+    //Getters
+    public String getNombre (){
+        return nombre;
+    }
+    public String getApellidos (){
+        return apellidos;
+    }
+    public String getCedula (){
+        return cedula;
+    }
+    public char getSexo (){
+        return sexo;
+    }
+    public String getUbicacion() {
+        return ubicacion;
+    }
+    //Setters
+    public void setNombre (String nuevoNombre){
+        nombre = nuevoNombre;
+    }
+    public void setApellidos (String nuevosApellidos){
+        apellidos = nuevosApellidos;
+    }
+    public void setCedula (String nuevaCedula){
+        cedula = nuevaCedula;
+    }
+    public void setSexo (char nuevoSexo){
+        sexo = nuevoSexo;
+    }
+    public void setUbicacion (String nuevaUbicacion){
+        ubicacion = nuevaUbicacion;
+    }
+
+    public boolean equals(Cliente clienteComparar) {
+        return cedula.equals(clienteComparar.cedula);
+    }
+
+    public Cliente (String nombreObjeto,
+                    String apellidosObjeto,
+                    String cedulaObjeto,
+                    char sexoObjeto,
+                    String ubicacionObjeto){
         nombre = nombreObjeto;
         apellidos = apellidosObjeto;
         cedula = cedulaObjeto;
@@ -21,7 +64,7 @@ public class Cliente {
         ubicacion = ubicacionObjeto;
     }
 
-    Cliente (String nombreObjeto,
+    public Cliente (String nombreObjeto,
              String apellidosObjeto,
              String cedulaObjeto,
              String ubicacionObjeto){
@@ -31,9 +74,9 @@ public class Cliente {
         ubicacion = ubicacionObjeto;
     }
 
-    Cliente (){}
+    public Cliente (){}
 
-    void mostrarInformacion() {
+    public void mostrarInformacion() {
         System.out.println("Nombre: " + nombre);
         System.out.println("Apellidos: " + apellidos);
         System.out.println("Cédula: " + cedula);
@@ -42,9 +85,9 @@ public class Cliente {
         System.out.println("------");
     }
 
-    void subscribirse (Subscripcion obejtoSubscripcion) {
+    public void subscribirse (Subscripcion obejtoSubscripcion) {
         System.out.println(nombre + " " + apellidos + " obtuvo la subscripción" +
-                " " + obejtoSubscripcion.tipo + ".");
+                " " + obejtoSubscripcion.getTipo() + ".");
     }
 
 }
